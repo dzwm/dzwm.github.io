@@ -1,50 +1,65 @@
 ---
 home: true
-layout: Blog
 icon: house
 title: 首页
 heroImage: /images/home-hero.png
+heroImageStyle:
+  maxWidth: 17rem
+  borderRadius: 8px
 heroText: dzwm
-tagline: 写给未来自己的技术笔记。
-heroFullScreen: false
-bgImage: /images/home-hero.png
-bgImageDark: /images/home-hero.png
-projects:
-  - icon: laptop-code
-    name: 工程实践
-    desc: 记录项目搭建、调试、发布和长期维护中的判断。
-    link: /posts/hello-blog.html
-  - icon: palette
-    name: 前端体验
-    desc: 关注页面结构、交互状态、性能和可读性。
-    link: /posts/vuepress-notes.html
-  - icon: box-archive
-    name: 知识归档
-    desc: 把零散资料整理成可以复用的笔记索引。
-    link: /timeline/
+tagline: 工程实践、前端体验和长期笔记，先把能维护很多年的框架搭稳。
+actions:
+  - text: 开始阅读
+    icon: book-open
+    link: /articles/
+    type: primary
+  - text: 技术笔记
+    icon: bookmark
+    link: /notes/
+  - text: GitHub
+    icon: brands:github
+    link: https://github.com/dzwm
+highlights:
+  - header: 工程实践
+    description: 用文章沉淀站点建设、工具选择、踩坑记录和复盘。
+    features:
+      - title: 博客建设
+        icon: pen-to-square
+        details: 记录站点框架、主题配置和 GitHub Pages 发布流程。
+        link: /articles/blog-start.html
+      - title: VuePress 模板
+        icon: layer-group
+        details: 以成熟 Theme Hope 结构作为长期维护底座。
+        link: /articles/vuepress-template.html
+      - title: 内容导入
+        icon: file-import
+        details: 后续按分类逐步导入正式文章。
+        link: /articles/
+  - header: 长期笔记
+    description: 把零散知识按主题收纳，优先保证可查、可扩展。
+    features:
+      - title: 前端体验
+        icon: palette
+        details: 页面结构、交互稳定性、性能和可读性。
+        link: /notes/frontend.html
+      - title: 工具链
+        icon: screwdriver-wrench
+        details: 构建、调试、脚本和自动化。
+        link: /notes/tooling.html
+      - title: 部署发布
+        icon: cloud-arrow-up
+        details: GitHub Pages、CI 和静态站点发布。
+        link: /notes/deployment.html
+  - header: 站点原则
+    description: 参考现成框架，减少自定义组件带来的小问题。
+    highlights:
+      - title: 稳定
+        icon: shield
+        details: 导航、滚动条、卡片状态都避免布局重排。
+      - title: 克制
+        icon: leaf
+        details: 保留玻璃质感和柔和动效，但不牺牲阅读密度。
+      - title: 可迁移
+        icon: code-branch
+        details: 配置拆分为 theme/navbar/sidebar，后续迁移内容更轻松。
 ---
-
-<section class="home-panel">
-  <div>
-    <p class="section-kicker">技术笔记</p>
-    <h2>把每次解决问题留下来</h2>
-    <p>
-      这里会先从前端工程、VuePress、工具链和部署流程开始整理。页面现在是基础框架，后续可以逐步导入正式文章、项目记录和专题索引。
-    </p>
-  </div>
-  <div class="metric-grid" aria-label="blog preview metrics">
-    <span><strong>VuePress 2</strong><em>文档驱动</em></span>
-    <span><strong>Theme Hope</strong><em>博客能力</em></span>
-    <span><strong>GitHub Pages</strong><em>后续部署</em></span>
-  </div>
-</section>
-
-<section class="home-panel muted">
-  <div>
-    <p class="section-kicker">最近更新</p>
-    <h2>先放两篇示例文章观察效果</h2>
-    <p>
-      示例内容用于检查排版、目录、标签、代码块和文章卡片。等整体风格确认后，再替换为你的正式博客内容。
-    </p>
-  </div>
-</section>

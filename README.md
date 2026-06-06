@@ -19,4 +19,10 @@ The v1 snapshot is preserved outside this project at:
 D:\app\codex\ai\2\dzwm.github.io-v1-snapshot
 ```
 
-This working tree is the v2 visual pass. It focuses on stable navigation, stable blog sidebar cards, and softer route transitions before content import or deployment.
+The v2 snapshot is preserved outside this project at:
+
+```text
+D:\app\codex\ai\2\dzwm.github.io-v2-snapshot
+```
+
+This working tree is the v3 template pass. It keeps the route transition work from v2, but moves the site closer to the standard Theme Hope structure: `theme.ts`, `navbar/`, `sidebar/`, a theme-native home page, and separate article, note, project, and about sections.
