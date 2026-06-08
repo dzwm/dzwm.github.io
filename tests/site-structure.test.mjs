@@ -53,3 +53,19 @@ test("v2 interaction layer keeps navigation and cards visually stable", () => {
   assert.match(styles, /\.dzwm-route-leaving/);
   assert.doesNotMatch(styles, /translateY\(-[2-9]px\)/);
 });
+
+test("v2 optimized navigation does not move the page vertically during route changes", () => {
+  const client = read("docs/.vuepress/client.ts");
+  const styles = read("docs/.vuepress/styles/index.scss");
+
+  assert.match(client, /requestAnimationFrame/);
+  assert.doesNotMatch(client, /behavior:\s*"smooth"/);
+  assert.match(styles, /--dzwm-insta-pink/);
+  assert.match(styles, /--dzwm-insta-mint/);
+  assert.match(styles, /\.vp-blog-hero::before/);
+  assert.match(styles, /\.vp-blog-type-switcher/);
+  assert.match(styles, /\.theme-container:not\(\.sidebar-open\) \.vp-sidebar/);
+  assert.doesNotMatch(styles, /translate3d\(0,\s*[1-9]/);
+  assert.doesNotMatch(styles, /translateY\([1-9]/);
+  assert.doesNotMatch(styles, /animation:\s*dzwm-page-enter/);
+});

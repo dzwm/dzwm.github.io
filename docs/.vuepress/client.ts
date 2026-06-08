@@ -1,7 +1,7 @@
 import { defineClientConfig } from "vuepress/client";
 import "./styles/index.scss";
 
-const routeAnimationDuration = 260;
+const routeAnimationDuration = 220;
 
 export default defineClientConfig({
   enhance({ router }) {
@@ -17,24 +17,21 @@ export default defineClientConfig({
     });
 
     router.afterEach((to, from) => {
-      window.setTimeout(() => {
+      window.requestAnimationFrame(() => {
+        if (to.hash) {
+          const target = document.getElementById(decodeURIComponent(to.hash.slice(1)));
+          target?.scrollIntoView({ block: "start" });
+        } else if (to.path !== from.path) {
+          window.scrollTo({ top: 0, left: 0 });
+        }
+
         document.documentElement.classList.remove("dzwm-route-leaving");
         document.documentElement.classList.add("dzwm-route-entered");
 
         window.setTimeout(() => {
           document.documentElement.classList.remove("dzwm-route-entered");
         }, routeAnimationDuration);
-
-        if (to.hash) {
-          const target = document.getElementById(decodeURIComponent(to.hash.slice(1)));
-          target?.scrollIntoView({ behavior: "smooth", block: "start" });
-          return;
-        }
-
-        if (to.path !== from.path) {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-      }, 90);
+      });
     });
   },
 });
