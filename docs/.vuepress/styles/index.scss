@@ -24,10 +24,13 @@
   --dzwm-sakura-pink: #f4b8cd;
   --dzwm-anime-rose: #ffdce7;
   --dzwm-anime-ink: #4d4458;
-  --dzwm-note-yellow: #fff6bd;
-  --dzwm-note-pink: #ffdce7;
-  --dzwm-note-blue: #dcecf7;
-  --dzwm-note-green: #dff5de;
+  --dzwm-paper-bg: rgb(255 255 255 / 90%);
+  --dzwm-paper-bg-soft: rgb(255 250 253 / 86%);
+  --dzwm-paper-edge: rgb(244 184 205 / 54%);
+  --dzwm-corner-yellow: rgb(255 240 166 / 72%);
+  --dzwm-corner-pink: rgb(255 207 224 / 70%);
+  --dzwm-corner-blue: rgb(218 236 255 / 72%);
+  --dzwm-corner-mint: rgb(213 239 232 / 72%);
   --dzwm-paper-shadow: 0 12px 28px rgb(92 64 82 / 10%);
 }
 
@@ -173,28 +176,45 @@ body {
 }
 
 .vp-blog-hero-info {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   max-width: min(92vw, 30rem);
   padding: 1.4rem 1.55rem;
   border: 1px solid rgb(255 255 255 / 62%);
   border-radius: var(--dzwm-card-radius);
   background:
-    linear-gradient(135deg, rgb(255 255 255 / 70%), rgb(255 247 252 / 50%)),
-    linear-gradient(90deg, rgb(255 220 231 / 32%), rgb(233 221 255 / 30%));
+    linear-gradient(135deg, rgb(255 255 255 / 86%), rgb(255 250 253 / 74%)),
+    var(--dzwm-paper-bg);
   box-shadow: 0 22px 70px rgb(142 85 117 / 14%);
 }
 
 .vp-blog-hero-info::before {
   position: absolute;
-  top: -0.7rem;
-  left: 50%;
-  width: 5.5rem;
-  height: 1.45rem;
-  border: 1px solid rgb(255 255 255 / 64%);
-  border-radius: 2px;
-  background: rgb(255 246 189 / 82%);
-  box-shadow: 0 4px 14px rgb(92 64 82 / 8%);
+  inset: 0 auto 0 0;
+  z-index: 0;
+  width: 4px;
+  background: var(--dzwm-paper-edge);
   content: "";
-  transform: translateX(-50%) rotate(-2deg);
+  pointer-events: none;
+}
+
+.vp-blog-hero-info::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 1.45rem;
+  height: 1.45rem;
+  background: linear-gradient(135deg, rgb(255 255 255 / 58%), var(--dzwm-corner-yellow));
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.vp-blog-hero-info > * {
+  position: relative;
+  z-index: 1;
 }
 
 .vp-hero-info {
@@ -255,16 +275,16 @@ body {
   border: 1px solid rgb(255 255 255 / 70%);
   border-radius: var(--dzwm-card-radius);
   background:
-    linear-gradient(180deg, rgb(255 255 255 / 36%), transparent 55%),
-    var(--dzwm-note-yellow);
+    linear-gradient(180deg, rgb(255 255 255 / 58%), rgb(255 247 251 / 38%)),
+    var(--dzwm-paper-bg);
   box-shadow: var(--dzwm-paper-shadow);
 }
 
 .home-panel.muted {
   grid-template-columns: 1fr;
   background:
-    linear-gradient(180deg, rgb(255 255 255 / 36%), transparent 55%),
-    var(--dzwm-note-pink);
+    linear-gradient(180deg, rgb(255 255 255 / 62%), rgb(250 253 255 / 42%)),
+    var(--dzwm-paper-bg-soft);
 }
 
 .section-kicker {
@@ -340,14 +360,18 @@ body {
 .vp-blog-infos,
 .vp-star-article-wrapper,
 .home-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   border-radius: var(--dzwm-card-radius);
   border: 1px solid rgb(255 255 255 / 68%);
-  background-color: var(--dzwm-note-yellow);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 68%), rgb(255 249 252 / 44%)),
+    var(--dzwm-paper-bg) !important;
   box-shadow: var(--dzwm-paper-shadow);
   transition:
     border-color 0.22s ease,
     box-shadow 0.22s ease,
-    background-color 0.22s ease,
     opacity 0.22s ease;
 }
 
@@ -371,25 +395,70 @@ body {
   overflow: hidden;
 }
 
-.vp-project-card:nth-child(3n + 1),
-.vp-article-item:nth-child(3n + 1) {
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 38%), transparent 56%),
-    var(--dzwm-note-yellow);
+.home-panel::before,
+.vp-project-card::before,
+.vp-article-item::before,
+.vp-blogger-info::before,
+.vp-blog-infos::before,
+.vp-star-article-wrapper::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 0;
+  width: 4px;
+  background: var(--dzwm-paper-edge);
+  content: "";
+  pointer-events: none;
 }
 
-.vp-project-card:nth-child(3n + 2),
-.vp-article-item:nth-child(3n + 2) {
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 38%), transparent 56%),
-    var(--dzwm-note-pink);
+.home-panel::after,
+.vp-project-card::after,
+.vp-article-item::after,
+.vp-blogger-info::after,
+.vp-blog-infos::after,
+.vp-star-article-wrapper::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: linear-gradient(135deg, rgb(255 255 255 / 52%), var(--dzwm-corner-yellow));
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  content: "";
+  pointer-events: none;
 }
 
-.vp-project-card:nth-child(3n),
-.vp-article-item:nth-child(3n) {
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 38%), transparent 56%),
-    var(--dzwm-note-blue);
+.home-panel > *,
+.vp-project-card > *,
+.vp-article-item > *,
+.vp-blogger-info > *,
+.vp-blog-infos > *,
+.vp-star-article-wrapper > * {
+  position: relative;
+  z-index: 1;
+}
+
+.vp-article-item .sticky-icon {
+  display: none;
+}
+
+.home-panel.muted::after,
+.vp-project-card:nth-child(3n + 2)::after,
+.vp-article-item:nth-child(3n + 2)::after {
+  background: linear-gradient(135deg, rgb(255 255 255 / 52%), var(--dzwm-corner-blue));
+}
+
+.vp-project-card:nth-child(3n + 1)::after,
+.vp-article-item:nth-child(3n + 1)::after,
+.vp-blogger-info::after {
+  background: linear-gradient(135deg, rgb(255 255 255 / 54%), var(--dzwm-corner-yellow));
+}
+
+.vp-project-card:nth-child(3n)::after,
+.vp-article-item:nth-child(3n)::after,
+.vp-blog-infos::after,
+.vp-star-article-wrapper::after {
+  background: linear-gradient(135deg, rgb(255 255 255 / 52%), var(--dzwm-corner-pink));
 }
 
 .vp-blogger-avatar {
@@ -421,6 +490,8 @@ body {
 }
 
 .vp-blog-type-switcher {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
@@ -429,6 +500,8 @@ body {
 }
 
 .vp-blog-type-button {
+  position: relative;
+  z-index: 2;
   display: grid;
   place-items: center;
   width: 100%;
@@ -438,6 +511,8 @@ body {
 }
 
 .vp-blog-type-icon-wrapper {
+  position: relative;
+  z-index: 2;
   width: 46px;
   height: 46px;
   border: 1px solid transparent;

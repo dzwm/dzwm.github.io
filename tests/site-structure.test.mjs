@@ -89,17 +89,30 @@ test("v2 uses anime avatar and sakura background assets with a soft social style
   assert.match(styles, /\.vp-blogger-avatar/);
 });
 
-test("v2 disables dark mode and avoids heavy repaint effects for note-style rendering", () => {
+test("v2 disables dark mode and uses stable paper cards with non-overlapping accents", () => {
   const config = read("docs/.vuepress/config.ts");
   const styles = read("docs/.vuepress/styles/index.scss");
 
   assert.match(config, /darkmode: "disable"/);
   assert.match(config, /fullscreen: false/);
-  assert.match(styles, /--dzwm-note-yellow/);
-  assert.match(styles, /--dzwm-note-pink/);
-  assert.match(styles, /--dzwm-note-blue/);
+  assert.match(styles, /--dzwm-paper-bg/);
+  assert.match(styles, /--dzwm-corner-yellow/);
+  assert.match(styles, /--dzwm-corner-pink/);
+  assert.match(styles, /--dzwm-corner-blue/);
+  assert.match(styles, /--dzwm-paper-edge/);
   assert.match(styles, /\.vp-project-card:nth-child\(3n \+ 1\)/);
   assert.match(styles, /\.vp-blog-hero-info::before/);
+  assert.match(styles, /\.home-panel::before/);
+  assert.match(styles, /\.vp-project-card::after/);
+  assert.match(styles, /\.vp-article-item::after/);
+  assert.match(styles, /\.vp-blogger-info::after/);
+  assert.match(styles, /clip-path:\s*polygon\(100% 0,\s*0 0,\s*100% 100%\)/);
+  assert.match(styles, /\.vp-article-item \.sticky-icon[\s\S]*display:\s*none/);
+  assert.match(styles, /\.vp-blog-type-switcher[\s\S]*z-index:\s*2/);
+  assert.doesNotMatch(styles, /--dzwm-note-/);
+  assert.doesNotMatch(styles, /--dzwm-tape-/);
+  assert.doesNotMatch(styles, /top:\s*-[0-9.]+rem/);
+  assert.doesNotMatch(styles, /overflow:\s*visible/);
   assert.doesNotMatch(styles, /\[data-theme="dark"\]/);
   assert.doesNotMatch(styles, /backdrop-filter/);
   assert.doesNotMatch(styles, /filter:\s*[^;]*blur/);
