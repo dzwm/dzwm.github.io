@@ -22,9 +22,9 @@ export default defineUserConfig({
     logo: "/images/avatar-anime.jpg",
     repo: "dzwm/dzwm.github.io",
     docsDir: "docs",
-    darkmode: "toggle",
+    darkmode: "disable",
     navbarAutoHide: "none",
-    fullscreen: true,
+    fullscreen: false,
     print: false,
     navbar: [
       { text: "首页", link: "/" },

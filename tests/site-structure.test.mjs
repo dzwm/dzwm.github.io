@@ -88,3 +88,20 @@ test("v2 uses anime avatar and sakura background assets with a soft social style
   assert.match(styles, /\.vp-blog-hero-info/);
   assert.match(styles, /\.vp-blogger-avatar/);
 });
+
+test("v2 disables dark mode and avoids heavy repaint effects for note-style rendering", () => {
+  const config = read("docs/.vuepress/config.ts");
+  const styles = read("docs/.vuepress/styles/index.scss");
+
+  assert.match(config, /darkmode: "disable"/);
+  assert.match(config, /fullscreen: false/);
+  assert.match(styles, /--dzwm-note-yellow/);
+  assert.match(styles, /--dzwm-note-pink/);
+  assert.match(styles, /--dzwm-note-blue/);
+  assert.match(styles, /\.vp-project-card:nth-child\(3n \+ 1\)/);
+  assert.match(styles, /\.vp-blog-hero-info::before/);
+  assert.doesNotMatch(styles, /\[data-theme="dark"\]/);
+  assert.doesNotMatch(styles, /backdrop-filter/);
+  assert.doesNotMatch(styles, /filter:\s*[^;]*blur/);
+  assert.doesNotMatch(styles, /scroll-behavior:\s*smooth/);
+});
