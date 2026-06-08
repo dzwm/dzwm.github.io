@@ -12,6 +12,8 @@ test("blog scaffold has the expected VuePress structure and polished starter con
     "docs/README.md",
     "docs/.vuepress/config.ts",
     "docs/.vuepress/styles/index.scss",
+    "docs/.vuepress/public/images/avatar-anime.jpg",
+    "docs/.vuepress/public/images/hero-sakura.jpg",
     "docs/posts/hello-blog.md",
     "docs/posts/vuepress-notes.md",
   ];
@@ -68,4 +70,21 @@ test("v2 optimized navigation does not move the page vertically during route cha
   assert.doesNotMatch(styles, /translate3d\(0,\s*[1-9]/);
   assert.doesNotMatch(styles, /translateY\([1-9]/);
   assert.doesNotMatch(styles, /animation:\s*dzwm-page-enter/);
+});
+
+test("v2 uses anime avatar and sakura background assets with a soft social style", () => {
+  const config = read("docs/.vuepress/config.ts");
+  const home = read("docs/README.md");
+  const styles = read("docs/.vuepress/styles/index.scss");
+
+  assert.match(config, /logo: "\/images\/avatar-anime\.jpg"/);
+  assert.match(config, /avatar: "\/images\/avatar-anime\.jpg"/);
+  assert.match(config, /rel: "icon", href: "\/images\/avatar-anime\.jpg"/);
+  assert.match(home, /heroImage: \/images\/avatar-anime\.jpg/);
+  assert.match(home, /bgImage: \/images\/hero-sakura\.jpg/);
+  assert.match(styles, /--dzwm-anime-lavender/);
+  assert.match(styles, /--dzwm-sakura-pink/);
+  assert.match(styles, /\.vp-blog-mask/);
+  assert.match(styles, /\.vp-blog-hero-info/);
+  assert.match(styles, /\.vp-blogger-avatar/);
 });

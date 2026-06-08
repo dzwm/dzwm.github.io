@@ -3,12 +3,12 @@ home: true
 layout: Blog
 icon: house
 title: 首页
-heroImage: /images/home-hero.png
+heroImage: /images/avatar-anime.jpg
 heroText: dzwm
 tagline: 写给未来自己的技术笔记。
 heroFullScreen: false
-bgImage: /images/home-hero.png
-bgImageDark: /images/home-hero.png
+bgImage: /images/hero-sakura.jpg
+bgImageDark: /images/hero-sakura.jpg
 projects:
   - icon: laptop-code
     name: 工程实践

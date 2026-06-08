@@ -8,8 +8,8 @@ export default defineUserConfig({
   description: "dzwm 的个人技术博客",
   base: "/",
   head: [
-    ["meta", { name: "theme-color", content: "#14756c" }],
-    ["link", { rel: "icon", href: "/images/home-hero.png" }],
+    ["meta", { name: "theme-color", content: "#f4b8cd" }],
+    ["link", { rel: "icon", href: "/images/avatar-anime.jpg" }],
   ],
   bundler: viteBundler(),
 
@@ -19,7 +19,7 @@ export default defineUserConfig({
       name: "dzwm",
       url: "https://github.com/dzwm",
     },
-    logo: "/images/home-hero.png",
+    logo: "/images/avatar-anime.jpg",
     repo: "dzwm/dzwm.github.io",
     docsDir: "docs",
     darkmode: "toggle",
@@ -45,8 +45,8 @@ export default defineUserConfig({
     },
     blog: {
       name: "dzwm",
-      description: "记录工程实践、前端体验和一些长期可复用的笔记。",
-      avatar: "/images/home-hero.png",
+      description: "记录前端、工程实践和一些带点二次元气息的长期笔记。",
+      avatar: "/images/avatar-anime.jpg",
       intro: "/intro.html",
       roundAvatar: true,
       medias: {
