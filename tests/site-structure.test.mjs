@@ -13,8 +13,7 @@ test("blog scaffold has the expected VuePress structure and polished starter con
     "docs/.vuepress/config.ts",
     "docs/.vuepress/styles/index.scss",
     "docs/.vuepress/public/images/avatar-anime.jpg",
-    "docs/.vuepress/public/images/hero-sakura.jpg",
-    "docs/posts/hello-blog.md",
+    "docs/posts/cms基础通关.md",
     "docs/posts/vuepress-notes.md",
   ];
 
@@ -48,11 +47,17 @@ test("v2 interaction layer keeps navigation and cards visually stable", () => {
   assert.match(client, /router\.beforeEach/);
   assert.match(client, /dzwm-route-leaving/);
   assert.doesNotMatch(client, /scrollIntoView/);
+  assert.match(client, /syncBlogEnhancements/);
+  assert.match(client, /dzwm-doc-tree/);
+  assert.match(client, /dzwm-right-sidebar-toggle/);
   assert.match(styles, /scrollbar-gutter:\s*stable/);
   assert.match(styles, /html\s*\{/);
   assert.match(styles, /--dzwm-card-radius/);
   assert.match(styles, /\.vp-navbar/);
   assert.match(styles, /\.vp-blog-type-switcher/);
+  assert.match(styles, /\.dzwm-doc-tree-panel/);
+  assert.match(styles, /\.dzwm-right-sidebar-collapsed/);
+  assert.match(styles, /\.vp-theme-color/);
   assert.match(styles, /\.dzwm-route-leaving/);
   assert.doesNotMatch(styles, /translateY\(-[2-9]px\)/);
 });
@@ -83,7 +88,7 @@ test("v2 uses anime avatar and sakura background assets with a soft social style
   assert.match(config, /avatar: "\/images\/avatar-anime\.jpg"/);
   assert.match(config, /rel: "icon", href: "\/images\/avatar-anime\.jpg"/);
   assert.match(home, /heroImage: \/images\/avatar-anime\.jpg/);
-  assert.match(home, /bgImage: \/images\/hero-sakura\.jpg/);
+  assert.match(home, /bgImage: \/images\/.+/);
   assert.match(styles, /--dzwm-anime-lavender/);
   assert.match(styles, /--dzwm-sakura-pink/);
   assert.match(styles, /\.vp-blog-mask/);

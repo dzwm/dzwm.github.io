@@ -13,7 +13,7 @@ projects:
   - icon: laptop-code
     name: 古老的cms靶场漏洞挖掘
     desc: 历史遗留的几种经典Web漏洞进行复现与分析
-    link: /posts/hello-blog.html
+    link: /posts/cms基础通关.html
   - icon: palette
     name: 前端体验
     desc: 关注页面结构、交互状态、性能和可读性。

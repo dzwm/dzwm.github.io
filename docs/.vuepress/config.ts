@@ -30,7 +30,6 @@ export default defineUserConfig({
       { text: "首页", link: "/" },
       { text: "文章", link: "/article/" },
       { text: "分类", link: "/category/" },
-      { text: "标签", link: "/tag/" },
       { text: "归档", link: "/timeline/" },
       { text: "GitHub", link: "https://github.com/dzwm" },
     ],
@@ -39,7 +38,7 @@ export default defineUserConfig({
         {
           text: "起步",
           icon: "pen-to-square",
-          children: ["hello-blog", "vuepress-notes"],
+          children: ["cms基础通关", "vuepress-notes"],
         },
       ],
     },

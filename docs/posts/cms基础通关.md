@@ -3,10 +3,7 @@ title: 古老的cms靶场
 date: 2026-06-04
 category:
   - 靶场练习
-tag:
-  - VuePress
-  - Theme Hope
-  - GitHub Pages
+
 sticky: 1
 ---
 

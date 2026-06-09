@@ -34,7 +34,7 @@ toc: false       # 彻底去掉违和的“此页内容”目录
   title="🎯 靶场漏洞复现"
   desc="专注于历史经典 CMS 以及各大知名靶场的漏洞挖掘，从反序列化、SQL 注入到权限提升，热衷于输出高质量分析报告。"
   logo="laptop-code"
-  link="/posts/hello-blog.html"
+  link="/posts/cms基础通关.html"
 />
 
 <VPCard
