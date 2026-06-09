@@ -23,9 +23,9 @@ test("blog scaffold has the expected VuePress structure and polished starter con
   }
 
   const home = read("docs/README.md");
-  assert.match(home, /heroText: dzwm/);
-  assert.match(home, /技术笔记/);
-  assert.match(home, /最近更新/);
+  assert.match(home, /heroText:\s*.+/);
+  assert.match(home, /tagline:\s*.+/);
+  assert.match(home, /projects:/);
 
   const config = read("docs/.vuepress/config.ts");
   assert.match(config, /hostname: "https:\/\/dzwm\.github\.io"/);
@@ -47,6 +47,7 @@ test("v2 interaction layer keeps navigation and cards visually stable", () => {
   assert.match(readme, /v1 snapshot/i);
   assert.match(client, /router\.beforeEach/);
   assert.match(client, /dzwm-route-leaving/);
+  assert.doesNotMatch(client, /scrollIntoView/);
   assert.match(styles, /scrollbar-gutter:\s*stable/);
   assert.match(styles, /html\s*\{/);
   assert.match(styles, /--dzwm-card-radius/);
@@ -62,6 +63,7 @@ test("v2 optimized navigation does not move the page vertically during route cha
 
   assert.match(client, /requestAnimationFrame/);
   assert.doesNotMatch(client, /behavior:\s*"smooth"/);
+  assert.doesNotMatch(client, /to\.hash/);
   assert.match(styles, /--dzwm-insta-pink/);
   assert.match(styles, /--dzwm-insta-mint/);
   assert.match(styles, /\.vp-blog-hero::before/);

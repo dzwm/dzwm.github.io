@@ -5,14 +5,14 @@ icon: house
 title: 首页
 heroImage: /images/avatar-anime.jpg
 heroText: dzwm
-tagline: 写给未来自己的技术笔记。
+tagline: 变得更强壮了！
 heroFullScreen: false
-bgImage: /images/hero-sakura.jpg
-bgImageDark: /images/hero-sakura.jpg
+bgImage: /images/x.png
+bgImageDark: /images/x.png
 projects:
   - icon: laptop-code
-    name: 工程实践
-    desc: 记录项目搭建、调试、发布和长期维护中的判断。
+    name: 古老的cms靶场漏洞挖掘
+    desc: 历史遗留的几种经典Web漏洞进行复现与分析
     link: /posts/hello-blog.html
   - icon: palette
     name: 前端体验
@@ -48,3 +48,4 @@ projects:
     </p>
   </div>
 </section>
+<img class="bottom-faded-image" src="/images/a.png" alt="底部装饰图">

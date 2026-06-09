@@ -18,10 +18,7 @@ export default defineClientConfig({
 
     router.afterEach((to, from) => {
       window.requestAnimationFrame(() => {
-        if (to.hash) {
-          const target = document.getElementById(decodeURIComponent(to.hash.slice(1)));
-          target?.scrollIntoView({ block: "start" });
-        } else if (to.path !== from.path) {
+        if (to.path !== from.path) {
           window.scrollTo({ top: 0, left: 0 });
         }
 
