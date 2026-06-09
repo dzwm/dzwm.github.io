@@ -4,7 +4,7 @@ import { hopeTheme } from "vuepress-theme-hope";
 
 export default defineUserConfig({
   lang: "zh-CN",
-  title: "dzwm",
+  title: "首页",
   description: "dzwm 的个人技术博客",
   base: "/",
   head: [
